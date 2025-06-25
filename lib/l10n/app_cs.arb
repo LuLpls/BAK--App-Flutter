@@ -1,0 +1,79 @@
+{
+  "@@locale": "cs",
+  "appTitle": "Nákupní seznamy",
+  "@appTitle": {
+    "description": "Název aplikace"
+  },
+  "settings": "Nastavení",
+  "@settings": {
+    "description": "Název stránky nastavení"
+  },
+  "newList": "Nový nákupní seznam",
+  "@newList": {
+    "description": "Text pro vytvoření nového seznamu"
+  },
+  "newItem": "Nová položka",
+  "@newItem": {
+    "description": "Text pro vytvoření nové položky"
+  },
+  "cancel": "Zrušit",
+  "@cancel": {
+    "description": "Tlačítko pro zrušení akce"
+  },
+  "add": "Přidat",
+  "@add": {
+    "description": "Tlačítko pro přidání"
+  },
+  "edit": "Upravit",
+  "@edit": {
+    "description": "Tlačítko pro úpravu"
+  },
+  "delete": "Smazat",
+  "@delete": {
+    "description": "Tlačítko pro smazání"
+  },
+  "save": "Uložit",
+  "@save": {
+    "description": "Tlačítko pro uložení"
+  },
+  "noLists": "Zatím žádné seznamy",
+  "@noLists": {
+    "description": "Zpráva, pokud nejsou žádné seznamy"
+  },
+  "noItems": "Zatím žádné položky",
+  "@noItems": {
+  "description": "Zpráva, pokud nejsou v seznamu žádné položky"
+  },
+  "listNameHint": "Zadej název seznamu",
+  "@listNameHint": {
+    "description": "Nápověda k textovému poli pro název seznamu"
+  },
+  "invalidListName": "Název seznamu nesmí být delší než 30 znaků",
+  "@invalidListName": {
+    "description": "Chybová hláška pro neplatný název seznamu"
+  },
+  "darkMode": "Tmavý režim",
+  "@darkMode": {
+    "description": "Přepínač tmavého režimu"
+  },
+  "language": "Jazyk",
+  "@language": {
+    "description": "Nadpis pro výběr jazyka"
+  },
+  "itemNameHint": "Zadej název položky",
+  "@itemNameHint": {
+    "description": "Nápověda k textovému poli pro název položky"
+  },
+  "invalidItemName": "Název položky nesmí být delší než 20 znaků",
+  "@invalidItemName": {
+    "description": "Chybová hláška pro neplatný název položky"
+  },
+  "quantityHint": "Zadej množství",
+  "@quantityHint": {
+    "description": "Nápověda k textovému poli pro množství položky"
+  },
+  "invalidQuantity": "Množství musí být kladné číslo",
+  "@invalidQuantity": {
+    "description": "Chybová hláška pro neplatné množství"
+  }
+}

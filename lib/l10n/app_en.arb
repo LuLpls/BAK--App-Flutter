@@ -1,0 +1,79 @@
+{
+  "@@locale": "en",
+  "appTitle": "Shopping Lists",
+  "@appTitle": {
+    "description": "App title"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings screen title"
+  },
+  "newList": "New Shopping List",
+  "@newList": {
+    "description": "Label for creating a new shopping list"
+  },
+  "newItem": "New Item",
+  "@newItem": {
+    "description": "Label for creating a new item"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "add": "Add",
+  "@add": {
+    "description": "Add button label"
+  },
+  "edit": "Edit",
+  "@edit": {
+    "description": "Edit button label"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button label"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button label"
+  },
+  "noLists": "No shopping lists yet",
+  "@noLists": {
+    "description": "Message when no shopping lists are present"
+  },
+  "noItems": "No items yet",
+  "@noItems": {
+  "description": "Message when there are no items in the list"
+  },
+  "listNameHint": "Enter list name",
+  "@listNameHint": {
+    "description": "Hint text for entering a list name"
+  },
+  "invalidListName": "List name must be up to 30 characters",
+  "@invalidListName": {
+    "description": "Error message for too long list name"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Toggle for dark mode"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Title for language selection"
+  },
+  "itemNameHint": "Enter item name",
+  "@itemNameHint": {
+    "description": "Hint text for entering an item name"
+  },
+  "invalidItemName": "Item name must be up to 20 characters",
+  "@invalidItemName": {
+    "description": "Error message for invalid item name"
+  },
+  "quantityHint": "Enter quantity",
+  "@quantityHint": {
+    "description": "Hint text for entering quantity"
+  },
+  "invalidQuantity": "Quantity must be a positive number",
+  "@invalidQuantity": {
+    "description": "Error message for invalid quantity"
+  }
+}
