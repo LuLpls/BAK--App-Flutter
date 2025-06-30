@@ -1,3 +1,5 @@
+import 'dart:developer' as dev;
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,6 +10,8 @@ import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';
 
 void main() async {
+  final appStart = DateTime.now();
+
   WidgetsFlutterBinding.ensureInitialized();
 
   final themeProvider = ThemeProvider();
@@ -15,6 +19,11 @@ void main() async {
 
   await themeProvider.loadTheme();
   await localeProvider.loadLocale();
+
+  dev.log(
+    'App initialized in ${DateTime.now().difference(appStart).inMilliseconds} ms',
+    name: 'performance',
+  );
 
   runApp(
     MultiProvider(

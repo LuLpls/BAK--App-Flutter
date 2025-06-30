@@ -1,3 +1,5 @@
+import 'dart:developer' as dev;
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +26,12 @@ class SettingsScreen extends StatelessWidget {
           SwitchListTile(
             title: Text(localizations.darkMode),
             value: isDark,
-            onChanged: themeProvider.toggleTheme,
+            onChanged: (value) async {
+              final start = DateTime.now();
+              themeProvider.toggleTheme(value);
+              final duration = DateTime.now().difference(start).inMilliseconds;
+              dev.log('Theme changed in $duration ms', name: 'performance');
+            },
           ),
           const Divider(),
           ListTile(
@@ -42,8 +49,16 @@ class SettingsScreen extends StatelessWidget {
                         title: const Text('Čeština'),
                         value: 'cs',
                         groupValue: currentLocale,
-                        onChanged: (value) {
-                          localeProvider.setLocale(value!);
+                        onChanged: (value) async {
+                          final start = DateTime.now();
+                          await localeProvider.setLocale(value!);
+                          final duration = DateTime.now()
+                              .difference(start)
+                              .inMilliseconds;
+                          dev.log(
+                            'Language changed to cs in $duration ms',
+                            name: 'performance',
+                          );
                           Navigator.pop(context);
                         },
                       ),
@@ -51,8 +66,16 @@ class SettingsScreen extends StatelessWidget {
                         title: const Text('English'),
                         value: 'en',
                         groupValue: currentLocale,
-                        onChanged: (value) {
-                          localeProvider.setLocale(value!);
+                        onChanged: (value) async {
+                          final start = DateTime.now();
+                          await localeProvider.setLocale(value!);
+                          final duration = DateTime.now()
+                              .difference(start)
+                              .inMilliseconds;
+                          dev.log(
+                            'Language changed to en in $duration ms',
+                            name: 'performance',
+                          );
                           Navigator.pop(context);
                         },
                       ),

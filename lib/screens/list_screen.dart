@@ -1,3 +1,4 @@
+import 'dart:developer' as dev;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -90,7 +91,7 @@ class _ListScreenState extends State<ListScreen> {
             child: Text(localizations.cancel),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
               final name = nameController.text.trim();
               final quantityText = quantityController.text.trim();
               final unit = unitController.text.trim();
@@ -118,6 +119,7 @@ class _ListScreenState extends State<ListScreen> {
                 return;
               }
 
+              final start = DateTime.now();
               setState(() {
                 _items.add(
                   Item(
@@ -129,7 +131,9 @@ class _ListScreenState extends State<ListScreen> {
                 );
                 _sortItems();
               });
-              _saveItems();
+              await _saveItems();
+              final duration = DateTime.now().difference(start).inMilliseconds;
+              dev.log('Item created in $duration ms', name: 'performance');
               Navigator.pop(context);
             },
             child: Text(localizations.add),
@@ -179,7 +183,7 @@ class _ListScreenState extends State<ListScreen> {
             child: Text(localizations.cancel),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
               final name = nameController.text.trim();
               final quantityText = quantityController.text.trim();
               final unit = unitController.text.trim();
@@ -200,6 +204,7 @@ class _ListScreenState extends State<ListScreen> {
                 return;
               }
 
+              final start = DateTime.now();
               setState(() {
                 final index = _items.indexOf(item);
                 _items[index] = Item(
@@ -211,7 +216,9 @@ class _ListScreenState extends State<ListScreen> {
                 );
                 _sortItems();
               });
-              _saveItems();
+              await _saveItems();
+              final duration = DateTime.now().difference(start).inMilliseconds;
+              dev.log('Item edited in $duration ms', name: 'performance');
               Navigator.pop(context);
             },
             child: Text(localizations.save),
@@ -235,11 +242,14 @@ class _ListScreenState extends State<ListScreen> {
             child: Text(localizations.cancel),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
+              final start = DateTime.now();
               setState(() {
                 _items.remove(item);
               });
-              _saveItems();
+              await _saveItems();
+              final duration = DateTime.now().difference(start).inMilliseconds;
+              dev.log('Item deleted in $duration ms', name: 'performance');
               Navigator.pop(context);
             },
             child: Text(localizations.delete),
