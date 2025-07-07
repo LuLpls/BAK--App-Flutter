@@ -63,5 +63,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quantityHint => 'Enter quantity';
 
   @override
+  String get unitHint => 'Enter unit';
+
+  @override
   String get invalidQuantity => 'Quantity must be a positive number';
+
+  @override
+  String get invalidUnit => 'Unit must be up to 10 characters';
 }

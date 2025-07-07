@@ -197,17 +197,29 @@ abstract class AppLocalizations {
   /// **'Item name must be up to 20 characters'**
   String get invalidItemName;
 
-  /// Hint text for entering quantity
+  /// Hint text for entering unit
   ///
   /// In en, this message translates to:
   /// **'Enter quantity'**
   String get quantityHint;
 
-  /// Error message for invalid quantity
+  /// No description provided for @unitHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter unit'**
+  String get unitHint;
+
+  /// Error message for invalid unit
   ///
   /// In en, this message translates to:
   /// **'Quantity must be a positive number'**
   String get invalidQuantity;
+
+  /// No description provided for @invalidUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'Unit must be up to 10 characters'**
+  String get invalidUnit;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

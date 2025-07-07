@@ -27,9 +27,11 @@ class SettingsScreen extends StatelessWidget {
             title: Text(localizations.darkMode),
             value: isDark,
             onChanged: (value) async {
-              final start = DateTime.now();
+              final start = DateTime.now(); // performance test starting
               themeProvider.toggleTheme(value);
-              final duration = DateTime.now().difference(start).inMilliseconds;
+              final duration = DateTime.now()
+                  .difference(start)
+                  .inMilliseconds; // performance test ending
               dev.log('Theme changed in $duration ms', name: 'performance');
             },
           ),
@@ -50,11 +52,12 @@ class SettingsScreen extends StatelessWidget {
                         value: 'cs',
                         groupValue: currentLocale,
                         onChanged: (value) async {
-                          final start = DateTime.now();
+                          final start =
+                              DateTime.now(); // performance test starting
                           await localeProvider.setLocale(value!);
                           final duration = DateTime.now()
                               .difference(start)
-                              .inMilliseconds;
+                              .inMilliseconds; // performance test ending
                           dev.log(
                             'Language changed to cs in $duration ms',
                             name: 'performance',
@@ -67,11 +70,11 @@ class SettingsScreen extends StatelessWidget {
                         value: 'en',
                         groupValue: currentLocale,
                         onChanged: (value) async {
-                          final start = DateTime.now();
+                          final start = DateTime.now(); // performance test starting
                           await localeProvider.setLocale(value!);
                           final duration = DateTime.now()
                               .difference(start)
-                              .inMilliseconds;
+                              .inMilliseconds; // performance test ending
                           dev.log(
                             'Language changed to en in $duration ms',
                             name: 'performance',

@@ -72,8 +72,16 @@
   "@quantityHint": {
     "description": "Nápověda k textovému poli pro množství položky"
   },
-  "invalidQuantity": "Množství musí být kladné číslo",
+  "unitHint": "Zadej jednotku",
+  "@quantityHint": {
+    "description": "Nápověda k textovému poli pro množství položky"
+  },
+  "invalidQuantity": "Množství může mít maximálně 10 znaků",
   "@invalidQuantity": {
     "description": "Chybová hláška pro neplatné množství"
+  },
+  "invalidUnit": "Jednotka může mít maximálně 10 znaků",
+  "@invalidQuantity": {
+    "description": "Chybová hláška pro neplatnou jednotku"
   }
 }

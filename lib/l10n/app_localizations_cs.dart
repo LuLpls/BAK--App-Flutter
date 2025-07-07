@@ -63,5 +63,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get quantityHint => 'Zadej množství';
 
   @override
+  String get unitHint => 'Zadej jednotku';
+
+  @override
   String get invalidQuantity => 'Množství musí být kladné číslo';
+
+  @override
+  String get invalidUnit => 'Jednotka může mít maximálně 10 znaků';
 }

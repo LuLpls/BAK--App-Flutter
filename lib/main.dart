@@ -10,7 +10,7 @@ import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';
 
 void main() async {
-  final appStart = DateTime.now();
+  final appStart = DateTime.now(); // performance test starting
 
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -23,7 +23,7 @@ void main() async {
   dev.log(
     'App initialized in ${DateTime.now().difference(appStart).inMilliseconds} ms',
     name: 'performance',
-  );
+  ); // performance test ending
 
   runApp(
     MultiProvider(

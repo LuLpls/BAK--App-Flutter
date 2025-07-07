@@ -81,7 +81,7 @@ class _ListScreenState extends State<ListScreen> {
             ),
             TextField(
               controller: unitController,
-              decoration: const InputDecoration(labelText: 'Jednotka'),
+              decoration: InputDecoration(labelText: localizations.unitHint),
             ),
           ],
         ),
@@ -103,23 +103,22 @@ class _ListScreenState extends State<ListScreen> {
                 return;
               }
 
-              if (unit.length > 10) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Jednotka max 10 znaků.')),
-                );
-                return;
-              }
-
               final quantity = double.tryParse(quantityText);
-              if (quantityText.isNotEmpty &&
-                  (quantity == null || quantity < 0)) {
+              if (quantityText.length > 10) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(localizations.invalidQuantity)),
                 );
                 return;
               }
 
-              final start = DateTime.now();
+              if (unit.length > 10) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(localizations.invalidUnit)),
+                );
+                return;
+              }
+
+              final start = DateTime.now(); // performence test starting
               setState(() {
                 _items.add(
                   Item(
@@ -132,7 +131,9 @@ class _ListScreenState extends State<ListScreen> {
                 _sortItems();
               });
               await _saveItems();
-              final duration = DateTime.now().difference(start).inMilliseconds;
+              final duration = DateTime.now()
+                  .difference(start)
+                  .inMilliseconds; // performence test ending
               dev.log('Item created in $duration ms', name: 'performance');
               Navigator.pop(context);
             },
@@ -196,15 +197,21 @@ class _ListScreenState extends State<ListScreen> {
               }
 
               final quantity = double.tryParse(quantityText);
-              if (quantityText.isNotEmpty &&
-                  (quantity == null || quantity < 0)) {
+              if (quantityText.length > 10) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text(localizations.invalidQuantity)),
                 );
                 return;
               }
 
-              final start = DateTime.now();
+              if (unit.length > 10) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(localizations.invalidUnit)),
+                );
+                return;
+              }
+
+              final start = DateTime.now(); //performance test starting
               setState(() {
                 final index = _items.indexOf(item);
                 _items[index] = Item(
@@ -217,7 +224,9 @@ class _ListScreenState extends State<ListScreen> {
                 _sortItems();
               });
               await _saveItems();
-              final duration = DateTime.now().difference(start).inMilliseconds;
+              final duration = DateTime.now()
+                  .difference(start)
+                  .inMilliseconds; // performance test ending
               dev.log('Item edited in $duration ms', name: 'performance');
               Navigator.pop(context);
             },
@@ -243,13 +252,16 @@ class _ListScreenState extends State<ListScreen> {
           ),
           TextButton(
             onPressed: () async {
-              final start = DateTime.now();
+              final start = DateTime.now(); // performence test starting
               setState(() {
                 _items.remove(item);
               });
               await _saveItems();
-              final duration = DateTime.now().difference(start).inMilliseconds;
+              final duration = DateTime.now()
+                  .difference(start)
+                  .inMilliseconds; // performence test ending
               dev.log('Item deleted in $duration ms', name: 'performance');
+
               Navigator.pop(context);
             },
             child: Text(localizations.delete),
@@ -316,7 +328,9 @@ class _ListScreenState extends State<ListScreen> {
                     onChanged: (_) => _togglePurchased(item),
                     title: Text(item.name),
                     subtitle: item.quantity != null
-                        ? Text('${item.quantity} ${item.unit ?? ''}')
+                        ? Text(
+                            '${item.quantity! % 1 == 0 ? item.quantity!.toInt() : item.quantity} ${item.unit ?? ''}',
+                          )
                         : null,
                     controlAffinity: ListTileControlAffinity.leading,
                   ),

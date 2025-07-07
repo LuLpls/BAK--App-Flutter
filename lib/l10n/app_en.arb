@@ -72,8 +72,16 @@
   "@quantityHint": {
     "description": "Hint text for entering quantity"
   },
-  "invalidQuantity": "Quantity must be a positive number",
+  "unitHint": "Enter unit",
+  "@quantityHint": {
+    "description": "Hint text for entering unit"
+  },
+  "invalidQuantity": "Quantity must be up to 10 characters",
   "@invalidQuantity": {
     "description": "Error message for invalid quantity"
+  },
+  "invalidUnit": "Unit must be up to 10 characters",
+  "@invalidQuantity": {
+    "description": "Error message for invalid unit"
   }
 }
